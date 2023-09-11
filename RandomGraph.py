@@ -9,6 +9,7 @@ class GraphGenerator:
         self.nProc   = NumProcessor
         self.nPerf   = PerfMachine
         self.mPF     = np.random.randint(low=1, high=self.nPerf, size=(self.nProc,))
+
         self.nTask   = NumTasks
         self.WLRange = WorkLoadRange
         #np.random.seed(0)
@@ -65,6 +66,7 @@ class GraphGenerator:
             while j < nTask:
                 if  lTask[j] == clvl or lTask[j] == clvl + 1  :
                     if np.random.choice(np.arange(0, 2), p=[1-alp, alp]) == 1 :     # print(np.random.choice(np.arange(0, 2), p=[0.8, 0.2]))
+                        #CMC[i][j] = np.random.randint(low=nPerf * bta, high=WLRange * bta)
                         CMC[i][j] = np.random.randint(low=nPerf * bta, high=WLRange * bta)
                     else:
                         CMC[i][j] = 0
